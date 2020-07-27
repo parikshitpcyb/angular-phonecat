@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bom xmlns="http://cyclonedx.org/schema/bom/1.2" serialNumber="urn:uuid:d07e1db2-02f2-406e-8ff3-96f785e485d9" version="1">
+    <metadata>
+        <timestamp>2020-07-27T09:11:14.307Z</timestamp>
+        <tools>
+            <tool>
+                <vendor>CycloneDX</vendor>
+                <name>Node.js module</name>
+                <version>2.0.0</version>
+            </tool>
+        </tools>
+        <component type="library" bom-ref="pkg:npm/angular-phonecat@0.0.0">
+            <name>angular-phonecat</name>
+            <version>0.0.0</version>
+            <description>
+                <![CDATA[A tutorial application for AngularJS]]>
+            </description>
+            <licenses>
+                <license>
+                    <id>MIT</id>
+                </license>
+            </licenses>
+            <purl>pkg:npm/angular-phonecat@0.0.0</purl>
+            <externalReferences>
+                <reference type="website">
+                    <url>https://github.com/angular/angular-phonecat#readme</url>
+                </reference>
+                <reference type="issue-tracker">
+                    <url>https://github.com/angular/angular-phonecat/issues</url>
+                </reference>
+                <reference type="vcs">
+                    <url>git+https://github.com/angular/angular-phonecat.git</url>
+                </reference>
+            </externalReferences>
+        </component>
+    </metadata>
+    <components>
+        <component type="framework" bom-ref="pkg:npm/angular@1.8.0">
+            <name>angular</name>
+            <version>1.8.0</version>
+            <description>
+                <![CDATA[HTML enhanced for web apps]]>
+            </description>
+            <hashes>
+                <hash alg="SHA-512">55d68cc7e424d129256bb079830efb6bc87395c39a93017c9a3956d770e921620395fab001b4922df77c37fa999f3126405e230b88a87c89ddde013bbcbf1966</hash>
+            </hashes>
+            <licenses>
+                <license>
+                    <id>MIT</id>
+                </license>
+            </licenses>
+            <purl>pkg:npm/angular@1.8.0</purl>
+            <externalReferences>
+                <reference type="website">
+                    <url>http://angularjs.org</url>
+                </reference>
+                <reference type="issue-tracker">
+                    <url>https://github.com/angular/angular.js/issues</url>
+                </reference>
+                <reference type="vcs">
+                    <url>git+https://github.com/angular/angular.js.git</url>
+                </reference>
+            </externalReferences>
+        </component>
+        <component type="framework" bom-ref="pkg:npm/angular-animate@1.8.0">
+            <name>angular-animate</name>
+            <version>1.8.0</version>
+            <description>
+                <![CDATA[AngularJS module for animations]]>
+            </description>
+            <hashes>
+                <hash alg="SHA-512">44e14add4227d4c495a6a0256b2d796718cf9956efc1a3b7667ff6be19907587aac526d456e39c91cbed0cb0691cf18fb4e02b7aedf9a9f57b350eeed8480370</hash>
+            </hashes>
+            <licenses>
+                <license>
+                    <id>MIT</id>
+                </license>
+            </licenses>
+            <purl>pkg:npm/angular-animate@1.8.0</purl>
+            <externalReferences>
+                <reference type="website">
+                    <url>http://angularjs.org</url>
+                </reference>
+                <reference type="issue-tracker">
+                    <url>https://github.com/angular/angular.js/issues</url>
+                </reference>
+                <reference type="vcs">
+                    <url>git+https://github.com/angular/angular.js.git</url>
+                </reference>
+            </externalReferences>
+        </component>
+        <component type="framework" bom-ref="pkg:npm/angular-resource@1.8.0">
+            <name>angular-resource</name>
+            <version>1.8.0</version>
+            <description>
+                <![CDATA[AngularJS module for interacting with RESTful server-side data sources]]>
+            </description>
+            <hashes>
+                <hash alg="SHA-512">f70a14ab7903c284fb47a4a3297f2f6893213a9958066f6ca910312a00e10c874fc80f22068c2a408bac7fdfbc43ecff1e55dbf195ef2aca49c8a5ebc6629dbe</hash>
+            </hashes>
+            <licenses>
+                <license>
+                    <id>MIT</id>
+                </license>
+            </licenses>
+            <purl>pkg:npm/angular-resource@1.8.0</purl>
+            <externalReferences>
+                <reference type="website">
+                    <url>http://angularjs.org</url>
+                </reference>
+                <reference type="issue-tracker">
+                    <url>https://github.com/angular/angular.js/issues</url>
+                </reference>
+                <reference type="vcs">
+                    <url>git+https://github.com/angular/angular.js.git</url>
+                </reference>
+            </externalReferences>
+        </component>
+        <component type="framework" bom-ref="pkg:npm/angular-route@1.8.0">
+            <name>angular-route</name>
+            <version>1.8.0</version>
+            <description>
+                <![CDATA[AngularJS router module]]>
+            </description>
+            <hashes>
+                <hash alg="SHA-512">391bd701d55f08203a5c5c328d2915405146b9f8f498d1a20af051f7742c8a2f3eeedffa228cbac21794a028f5c7835652fee102ade761818254ee9010a6f505</hash>
+            </hashes>
+            <licenses>
+                <license>
+                    <id>MIT</id>
+                </license>
+            </licenses>
+            <purl>pkg:npm/angular-route@1.8.0</purl>
+            <externalReferences>
+                <reference type="website">
+                    <url>http://angularjs.org</url>
+                </reference>
+                <reference type="issue-tracker">
+                    <url>https://github.com/angular/angular.js/issues</url>
+                </reference>
+                <reference type="vcs">
+                    <url>git+https://github.com/angular/angular.js.git</url>
+                </reference>
+            </externalReferences>
+        </component>
+        <component type="framework" bom-ref="pkg:npm/bootstrap@3.3.7">
+            <name>bootstrap</name>
+            <version>3.3.7</version>
+            <description>
+                <![CDATA[The most popular front-end framework for developing responsive, mobile first projects on the web.]]>
+            </description>
+            <hashes>
+                <hash alg="SHA-1">5a389394549f23330875a3b150656574f8a9eb71</hash>
+            </hashes>
+            <licenses>
+                <license>
+                    <id>MIT</id>
+                </license>
+            </licenses>
+            <purl>pkg:npm/bootstrap@3.3.7</purl>
+            <externalReferences>
+                <reference type="website">
+                    <url>http://getbootstrap.com</url>
+                </reference>
+                <reference type="issue-tracker">
+                    <url>https://github.com/twbs/bootstrap/issues</url>
+                </reference>
+                <reference type="vcs">
+                    <url>git+https://github.com/twbs/bootstrap.git</url>
+                </reference>
+            </externalReferences>
+        </component>
+        <component type="library" bom-ref="pkg:npm/jquery@3.3.1">
+            <name>jquery</name>
+            <version>3.3.1</version>
+            <description>
+                <![CDATA[JavaScript library for DOM operations]]>
+            </description>
+            <hashes>
+                <hash alg="SHA-512">51b95d726c69e67a79dbf10da2d1b194b7ba68632f985e11f12ead663b0fe8a9ec6b177fc69dd9ae1e74706f77951ea73d7c94170ccddd948e408d3044935d1a</hash>
+            </hashes>
+            <licenses>
+                <license>
+                    <id>MIT</id>
+                </license>
+            </licenses>
+            <purl>pkg:npm/jquery@3.3.1</purl>
+            <externalReferences>
+                <reference type="website">
+                    <url>https://jquery.com</url>
+                </reference>
+                <reference type="issue-tracker">
+                    <url>https://github.com/jquery/jquery/issues</url>
+                </reference>
+                <reference type="vcs">
+                    <url>git+https://github.com/jquery/jquery.git</url>
+                </reference>
+            </externalReferences>
+        </component>
+    </components>
+</bom>
