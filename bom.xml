@@ -35,9 +35,9 @@
         </component>
     </metadata>
     <components>
-        <component type="framework" bom-ref="pkg:npm/angular@1.8.0">
+        <component type="framework" bom-ref="pkg:npm/angular@1.7.8">
             <name>angular</name>
-            <version>1.8.0</version>
+            <version>1.7.8</version>
             <description>
                 <![CDATA[HTML enhanced for web apps]]>
             </description>
@@ -49,7 +49,7 @@
                     <id>MIT</id>
                 </license>
             </licenses>
-            <purl>pkg:npm/angular@1.8.0</purl>
+            <purl>pkg:npm/angular@1.7.8</purl>
             <externalReferences>
                 <reference type="website">
                     <url>http://angularjs.org</url>
@@ -62,9 +62,9 @@
                 </reference>
             </externalReferences>
         </component>
-        <component type="framework" bom-ref="pkg:npm/angular-animate@1.8.0">
+        <component type="framework" bom-ref="pkg:npm/angular-animate@1.7.8">
             <name>angular-animate</name>
-            <version>1.8.0</version>
+            <version>1.7.8</version>
             <description>
                 <![CDATA[AngularJS module for animations]]>
             </description>
@@ -76,7 +76,7 @@
                     <id>MIT</id>
                 </license>
             </licenses>
-            <purl>pkg:npm/angular-animate@1.8.0</purl>
+            <purl>pkg:npm/angular-animate@1.7.8</purl>
             <externalReferences>
                 <reference type="website">
                     <url>http://angularjs.org</url>
@@ -89,9 +89,9 @@
                 </reference>
             </externalReferences>
         </component>
-        <component type="framework" bom-ref="pkg:npm/angular-resource@1.8.0">
+        <component type="framework" bom-ref="pkg:npm/angular-resource@1.7.8">
             <name>angular-resource</name>
-            <version>1.8.0</version>
+            <version>1.7.8</version>
             <description>
                 <![CDATA[AngularJS module for interacting with RESTful server-side data sources]]>
             </description>
@@ -103,7 +103,7 @@
                     <id>MIT</id>
                 </license>
             </licenses>
-            <purl>pkg:npm/angular-resource@1.8.0</purl>
+            <purl>pkg:npm/angular-resource@1.7.8</purl>
             <externalReferences>
                 <reference type="website">
                     <url>http://angularjs.org</url>
@@ -116,9 +116,9 @@
                 </reference>
             </externalReferences>
         </component>
-        <component type="framework" bom-ref="pkg:npm/angular-route@1.8.0">
+        <component type="framework" bom-ref="pkg:npm/angular-route@1.7.8">
             <name>angular-route</name>
-            <version>1.8.0</version>
+            <version>1.7.8</version>
             <description>
                 <![CDATA[AngularJS router module]]>
             </description>
@@ -130,7 +130,7 @@
                     <id>MIT</id>
                 </license>
             </licenses>
-            <purl>pkg:npm/angular-route@1.8.0</purl>
+            <purl>pkg:npm/angular-route@1.7.8</purl>
             <externalReferences>
                 <reference type="website">
                     <url>http://angularjs.org</url>
