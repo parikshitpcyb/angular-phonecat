@@ -1,46 +1,23 @@
-# This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
 version: 2.1
 
-orbs:
-  node: circleci/node@4.1
-#  owasp: entur/owasp@0.0.15
-  sonarqube: clicklogiq/sonarqube@1.0.1
-
-executors:
-  scanner:
+jobs:
+  build:
     docker:
-      - image: alpine:latest
-
-commands:
-  setup-environment:
-    description: "Setup requirements - Override"
+      - image: cimg/base:2021.04
     steps:
+      - checkout
       - run:
-          name: "Setup environment - Override"
+          name: Install dependencies and build project
           command: |
             apk update
             apk add --no-cache zip openjdk11-jre-headless
+      - sonarcloud/scan
 
-  install-engine:
-    description: "Install Sonarqube scanner - Override"
-    parameters:
-      engine_version:
-        type: string
-        default: "4.6.2"
-    steps:
-      - run:
-          name: "Install Sonarqube scanner - Override"
-          command: |
-            wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-2.9.0.670.zip
-            unzip sonar-scanner-cli-2.9.0.670.zip
+orbs:
+  sonarcloud: sonarsource/sonarcloud@1.0.1
 
 workflows:
-  sample:
+  main:
     jobs:
-#      - owasp/commandline_owasp_dependency_check
-      - sonarqube/analyze 
-#      - node/test:
-#          version: '15.1'
-          # This is the node version to use for the `cimg/node` tag
-          # Relevant tags can be found on the CircleCI Developer Hub
-          # https://circleci.com/developer/images/image/cimg/node
+      - build:
+          context: SonarCloud
