@@ -4,6 +4,35 @@ version: 2.1
 orbs:
   node: circleci/node@4.1
   owasp: entur/owasp@0.0.15
+  sonarqube: clicklogiq/sonarqube@1.0.1
+
+executors:
+  scanner:
+    docker:
+      - image: alpine:latest
+
+commands:
+  setup-environment:
+    description: "Setup requirements"
+    steps:
+      - run:
+          name: "Setup environment"
+          command: |
+            apk update
+            apk add --no-cache zip openjdk11-jre-headless
+
+  install-engine:
+    description: "Install Sonarqube scanner"
+    parameters:
+      engine_version:
+        type: string
+        default: "4.2.0.1873"
+    steps:
+      - run:
+          name: "Install Sonarqube scanner"
+          command: |
+            wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-2.9.0.670.zip
+            unzip sonar-scanner-cli-2.9.0.670.zip
 
 workflows:
   sample:
