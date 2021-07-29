@@ -3,7 +3,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@4.1
-  owasp: entur/owasp@0.0.15
+#  owasp: entur/owasp@0.0.15
   sonarqube: clicklogiq/sonarqube@1.0.1
 
 executors:
@@ -13,32 +13,31 @@ executors:
 
 commands:
   setup-environment:
-    description: "Setup requirements"
+    description: "Setup requirements - Override"
     steps:
       - run:
-          name: "Setup environment"
+          name: "Setup environment - Override"
           command: |
             apk update
             apk add --no-cache zip openjdk11-jre-headless
 
   install-engine:
-    description: "Install Sonarqube scanner"
+    description: "Install Sonarqube scanner - Override"
     parameters:
       engine_version:
         type: string
         default: "4.6.2"
     steps:
       - run:
-          name: "Install Sonarqube scanner"
+          name: "Install Sonarqube scanner - Override"
           command: |
             wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-2.9.0.670.zip
             unzip sonar-scanner-cli-2.9.0.670.zip
 
-
 workflows:
   sample:
     jobs:
-      - owasp/commandline_owasp_dependency_check
+#      - owasp/commandline_owasp_dependency_check
       - sonarqube/analyze 
 #      - node/test:
 #          version: '15.1'
