@@ -30,10 +30,13 @@ workflows:
                   npm --version
                   echo "npm root -g"
                   npm root -g
+                  pwd
+                  echo "location-----------------------------"
                   cd /
-                  ls
+                  ls /usr/
+                  ls /lib/
                   echo "ls /usr/local/lib/node_modules/"
-                  ls /usr/local/lib/node_modules
+                  ls /lib/node_modules
                   echo "ls /usr/local/lib/node_modules/npm/"
                   ls /usr/local/lib/node_modules/npm
                   #dfctl run -v -a circleci-demo-job -c circleci-demo-javascript-express --version "${CIRCLE_BUILD_NUM}" --cmd /usr/lib/node_modules/npm test
