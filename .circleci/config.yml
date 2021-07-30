@@ -34,6 +34,7 @@ workflows:
                   npm --version
                   echo "npm root -g"
                   npm root -g
+                  dfctl run -v -a circleci-demo-job -c circleci-demo-javascript-express --version "${CIRCLE_BUILD_NUM}" --cmd /usr/lib/node_modules/npm test
                 name: Deep Factor Failed Command
           tag: circleci-build
   version: 2.1
