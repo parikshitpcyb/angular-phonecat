@@ -21,7 +21,7 @@ workflows:
                 name: Deep Factor CLI Version
             - run:
                 command: |
-                  curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+                  sudo apt update
                   sudo apt install npm
                 name: update-npm
             - run:
