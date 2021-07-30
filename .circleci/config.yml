@@ -6,7 +6,7 @@ workflows:
     jobs:
       - deepfactor/scan:
           app-name: circleci-demo-job
-          cmd: /usr/share/npm test
+          cmd: /usr/local/lib/node_modules/npm test
           component-name: circleci-demo-javascript-express
           portal-url: 'https://portswigger.net/web-security'
           pre-run:
@@ -30,15 +30,6 @@ workflows:
                   npm --version
                   echo "npm root -g"
                   npm root -g
-                  pwd
-                  echo "location-----------------------------"
-                  cd /
-                  #find / -type d -name 'node_modules'
-                  #echo "ls /usr/local/lib/node_modules/"
-                  #ls /lib/node_modules
-                  echo "/usr/share/npm/"
-                  ls /usr/share/npm/
-                  #dfctl run -v -a circleci-demo-job -c circleci-demo-javascript-express --version "${CIRCLE_BUILD_NUM}" --cmd /usr/lib/node_modules/npm test
                 name: Deep Factor Failed Command
           tag: circleci-build
   version: 2.1
