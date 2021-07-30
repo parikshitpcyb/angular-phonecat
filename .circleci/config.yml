@@ -15,10 +15,9 @@ workflows:
                 command: |
                   echo 'export DF_RUN_TOKEN=b5efb76f4a48f748b70a7285c6aff767cd7a2c27' >> $BASH_ENV
                   source $BASH_ENV
-                  echo $DF_RUN_TOKEN
+                  echo "DF_RUN_TOKEN=" $DF_RUN_TOKEN
                   echo "Just for fun!"
-                  echo DF_RUN_TOKEN=${DF_RUN_TOKEN} >> "${BASH_ENV}"
-                  dfctl: /usr/local/bin/npm: --cmd
+                  echo "CIRCLE_BUILD_NUM = "${CIRCLE_BUILD_NUM}
                 name: Deep Factor CLI Version
             - run:
                 command: sudo apt install nodejs
