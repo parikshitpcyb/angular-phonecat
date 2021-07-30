@@ -10,12 +10,23 @@ workflows:
           component-name: circleci-demo-javascript-express
           portal-url: 'https://portswigger.net/web-security'
           pre-run:
+            - run:
+                command: >
+                        [ -w /usr/local/bin ] && SUDO="" || SUDO=sudo
+                        $SUDO apt-get update
+                        $SUDO apt-get install -y apt-transport-https curl gnupg
+                        $SUDO echo "deb https://repo.deepfactor.io/repo/deb/ ./" | $SUDO tee
+                        /etc/apt/sources.list.d/deepfactor.list
+                        $SUDO curl https://repo.deepfactor.io/repo/keys/D5DC8225.asc | $SUDO
+                        apt-key add -
+                        $SUDO apt update ; $SUDO apt install -y deepfactor-runtime
+                name: Install the DeepFactor cli tool
             - checkout
+            - run:
+                command: dfctl version
+                name: Deep Factor CLI Version
             - run:
                 command: npm install
                 name: update-npm
-            - run:
-                command: npm run test
-                name: npm-test
           tag: circleci-build
   version: 2.1
