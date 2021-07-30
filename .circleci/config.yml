@@ -24,7 +24,14 @@ workflows:
                 name: update-npm
             - run:
                 command: |
+                  echo "ls /usr/local/bin/"
                   ls /usr/local/bin/
+                  echo "node --version"
+                  node --version
+                  echo "npm --version"
+                  npm --version
+                  echo "npm root -g"
+                  npm root -g
                 name: Deep Factor Failed Command
           tag: circleci-build
   version: 2.1
