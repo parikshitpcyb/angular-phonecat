@@ -22,7 +22,7 @@ workflows:
             - run:
                 command: |
                   curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-                  sudo apt install nodejs
+                  sudo apt install npm
                 name: update-npm
             - run:
                 command: |
@@ -34,7 +34,7 @@ workflows:
                   npm --version
                   echo "npm root -g"
                   npm root -g
-                  dfctl run -v -a circleci-demo-job -c circleci-demo-javascript-express --version "${CIRCLE_BUILD_NUM}" --cmd /usr/lib/node_modules/npm test
+                  #dfctl run -v -a circleci-demo-job -c circleci-demo-javascript-express --version "${CIRCLE_BUILD_NUM}" --cmd /usr/lib/node_modules/npm test
                 name: Deep Factor Failed Command
           tag: circleci-build
   version: 2.1
