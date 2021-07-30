@@ -6,7 +6,7 @@ workflows:
     jobs:
       - deepfactor/scan:
           app-name: circleci-demo-job
-          cmd: /usr/local/bin/npm test
+          cmd: /usr/local/lib/node_modules/npm test
           component-name: circleci-demo-javascript-express
           portal-url: 'https://portswigger.net/web-security'
           pre-run:
