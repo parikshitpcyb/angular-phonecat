@@ -14,5 +14,8 @@ workflows:
             - run:
                 command: npm install
                 name: update-npm
+            - run:
+                command: npm run test
+                name: npm-test
           tag: circleci-build
   version: 2.1
