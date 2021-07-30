@@ -33,7 +33,7 @@ workflows:
                   pwd
                   echo "location-----------------------------"
                   cd /
-                  find / -type d -name 'npm'
+                  find / -type d -name 'node_modules'
                   echo "ls /usr/local/lib/node_modules/"
                   #ls /lib/node_modules
                   echo "ls /usr/local/lib/node_modules/npm/"
