@@ -26,10 +26,10 @@ workflows:
                 name: update-npm
             - run:
                 command: |
-                  #echo "ls /usr/lib/node_modules/"
-                  #ls /usr/lib/node_modules/
-                  #echo "node --version"
-                  #node --version
+                  echo "ls /usr/local/lib/node_modules/"
+                  ls /usr/local/lib/node_modules/
+                  echo "ls /usr/local/lib/node_modules/npm/"
+                  ls /usr/local/lib/node_modules/npm/
                   echo "npm --version"
                   npm --version
                   echo "npm root -g"
