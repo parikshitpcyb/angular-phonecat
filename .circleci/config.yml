@@ -15,7 +15,7 @@ workflows:
                 command: dfctl version
                 name: Deep Factor CLI Version
             - run:
-                command: sudo npm install
+                command: sudo apt install nodejs
                 name: update-npm
           tag: circleci-build
   version: 2.1
