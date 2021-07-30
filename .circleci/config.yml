@@ -24,7 +24,7 @@ workflows:
                 name: update-npm
             - run:
                 command: |
-                  dfctl run -v -a circleci-demo-job -c circleci-demo-javascript-express --version "${CIRCLE_BUILD_NUM}" --cmd /usr/local/bin/npm test
+                  ls /usr/local/bin/
                 name: Deep Factor Failed Command
           tag: circleci-build
   version: 2.1
