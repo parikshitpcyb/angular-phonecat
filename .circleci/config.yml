@@ -5,9 +5,17 @@ orbs:
 #  sonarqube: escaletech/sonarqube@0.3.0
   sonarqube: clicklogiq/sonarqube@1.0.1
 
+jobs:
+  build: 
+    docker:       
+      - image: alpine:latest        
+    steps:       
+      - run: echo "${CIRCLECI_PULL_REQUEST_NUMBER}"          
+
 workflows:
   sample:
     jobs:
       #- owasp/commandline_owasp_dependency_check
 #      - sonarqube/scanner
+      - build      
       - sonarqube/analyze
