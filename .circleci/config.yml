@@ -3,12 +3,12 @@ version: 2.1
 
 orbs:
   #owasp: entur/owasp@0.0.15
-  sonarqube: escaletech/sonarqube@0.3.0
-#  sonarqube: clicklogiq/sonarqube@1.0.1
+#  sonarqube: escaletech/sonarqube@0.3.0
+  sonarqube: clicklogiq/sonarqube@1.0.1
 
 workflows:
   sample:
     jobs:
       #- owasp/commandline_owasp_dependency_check
-      - sonarqube/scanner
-#      - sonarqube/analyze
+#      - sonarqube/scanner
+      - sonarqube/analyze
