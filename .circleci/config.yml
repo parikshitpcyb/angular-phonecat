@@ -2,7 +2,6 @@ version: 2.1
 
 orbs:
   owasp: entur/owasp@0.0.15
-  mailer-orb: sudiptog81/mailer-orb@1.0.0
 
 jobs:
   owasp_zap:
@@ -31,13 +30,4 @@ workflows:
       - owasp/commandline_owasp_dependency_check
       - owasp_zap:
           requires:
-            - owasp/commandline_owasp_dependency_check
-      - mailer-orb/mail:
-          body: |-
-            Sample Mail
-            Regards,
-            Circle CI
-          from: builds@circleci.com
-          subject: Example mail from mailer-orb
-          to: parikshitp@cybage.com
-        
+            - owasp/commandline_owasp_dependency_check  
