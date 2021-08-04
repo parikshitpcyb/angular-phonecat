@@ -1,21 +1,30 @@
 version: 2.1
 
 orbs:
-  #owasp: entur/owasp@0.0.15
-#  sonarqube: escaletech/sonarqube@0.3.0
-  sonarqube: clicklogiq/sonarqube@1.0.1
+  owasp: entur/owasp@0.0.15
 
 jobs:
-  build: 
-    docker:       
-      - image: alpine:latest        
-    steps:       
-      - run: echo "${CIRCLECI_PULL_REQUEST_NUMBER}"          
+  build:
+    machine:
+      image: ubuntu-2004:202107-02
+    steps:
+      #- setup_remote_docker
+      - checkout
+      - run:
+          name: Zap Scanning
+          command: |
+            sudo chmod ugo+rwx /home/circleci/project
+            ls -l /home/circleci && echo "Full Access Granted"
+            (
+              docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py \
+              -t http://www.itsecgames.com/ -d -r testreport.html || \
+              if [ $? -ne 1 ]; then exit 0; else exit 1; fi; 
+            )
+            # cat testreport.html
+      - store_artifacts:
+          path: testreport.html
 
 workflows:
-  sample:
+  owasp_dependency_check:
     jobs:
-      #- owasp/commandline_owasp_dependency_check
-#      - sonarqube/scanner
-      - build      
-      - sonarqube/analyze
+      - owasp/commandline_owasp_dependency_check
