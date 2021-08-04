@@ -4,7 +4,7 @@ orbs:
   owasp: entur/owasp@0.0.15
 
 jobs:
-  build:
+  owasp_zap:
     machine:
       image: ubuntu-2004:202107-02
     steps:
@@ -28,3 +28,4 @@ workflows:
   owasp_dependency_check:
     jobs:
       - owasp/commandline_owasp_dependency_check
+      - owasp_zap
