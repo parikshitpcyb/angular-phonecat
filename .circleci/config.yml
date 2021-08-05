@@ -23,11 +23,30 @@ jobs:
             # cat testreport.html
       - store_artifacts:
           path: testreport.html
+  sonar_scanner:
+    machine:
+      image: ubuntu-2004:202107-02
+    steps:
+      #- setup_remote_docker
+      - checkout
+      - run:
+          name: Sonar Scanning
+          command: |
+            docker run \
+            --rm \
+            -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true \
+            -e SONAR_HOST_URL="http://52.172.224.171" \
+            -e SONAR_LOGIN="7f9e868eeffa75e1caf61e5d608562d3a972f7ea" \
+            -v "$(pwd):/usr/src" \
+            sonarsource/sonar-scanner-cli
 
 workflows:
   security_checks:
     jobs:
       - owasp/commandline_owasp_dependency_check
+      - sonar_scanner:
+          requires:
+            - owasp/commandline_owasp_dependency_check
       - owasp_zap:
           requires:
-            - owasp/commandline_owasp_dependency_check  
+            - sonar_scanner
