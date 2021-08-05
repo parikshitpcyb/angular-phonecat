@@ -23,6 +23,7 @@ jobs:
             # cat testreport.html
       - store_artifacts:
           path: testreport.html
+  
   sonar_scanner:
     machine:
       image: ubuntu-2004:202107-02
