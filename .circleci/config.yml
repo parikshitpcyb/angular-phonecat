@@ -1,16 +1,52 @@
 version: 2.1
+
 orbs:
-  sonarcloud: sonarsource/sonarcloud@1.0.0
+  owasp: entur/owasp@0.0.15
+
 jobs:
-  build:
-    docker:
-      - image: 'circleci/python:3.7.4'
+  owasp_zap:
+    machine:
+      image: ubuntu-2004:202107-02
     steps:
-    - checkout
-    - sonarcloud/scan
+      #- setup_remote_docker
+      - checkout
+      - run:
+          name: Zap Scanning
+          command: |
+            sudo chmod ugo+rwx /home/circleci/project
+            ls -l /home/circleci && echo "Full Access Granted"
+            (
+              docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py \
+              -t http://www.itsecgames.com/ -d -r testreport.html || \
+              if [ $? -ne 1 ]; then exit 0; else exit 1; fi; 
+            )
+            # cat testreport.html
+      - store_artifacts:
+          path: testreport.html
+  sonar_scanner:
+    machine:
+      image: ubuntu-2004:202107-02
+    steps:
+      #- setup_remote_docker
+      - checkout
+      - run:
+          name: Sonar Scanning
+          command: |
+            docker run \
+            --rm \
+            -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true \
+            -e SONAR_HOST_URL="http://52.172.224.171" \
+            -e SONAR_LOGIN="7f9e868eeffa75e1caf61e5d608562d3a972f7ea" \
+            -v "$(pwd):/usr/src" \
+            sonarsource/sonar-scanner-cli
+
 workflows:
-  my-workflow:
+  security_checks:
     jobs:
-      - build:
-          context: SonarCloud
-#Updated
+      - owasp/commandline_owasp_dependency_check
+      - sonar_scanner
+#          requires:
+#            - owasp/commandline_owasp_dependency_check
+      - owasp_zap
+#          requires:
+#            - sonar_scanner
