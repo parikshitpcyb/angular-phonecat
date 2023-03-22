@@ -6,3 +6,13 @@ AWS Access Key ID: AKIAIOSFODNN7EXA
 AWS Secret Access Key: wJalrXUtnFEMI/K7MDENG/bPxRfiCY
 
 //Testing Secrets.
+
+POST / HTTP/2
+Host: HOST
+Accept: */*
+content-type: application/json
+GITHUB-PUBLIC-KEY-IDENTIFIER: f9525bf080f75b3506ca1ead061add62b8633a346606dc5fe544e29231c6ee0d
+GITHUB-PUBLIC-KEY-SIGNATURE: MEUCIFLZzeK++IhS+y276SRk2Pe5LfDrfvTXu6iwKKcFGCrvAiEAhHN2kDOhy2I6eGkOFmxNkOJ+L2y8oQ9A2T9GGJo6WJY=
+Content-Length: 83
+
+[{"token":"some_token","type":"some_type","url":"some_url","source":"some_source"}]
