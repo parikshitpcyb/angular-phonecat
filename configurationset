@@ -1,0 +1,7 @@
+Server=myServerName\myInstanceName;Database=myDataBase;Trusted_Connection=True;User ID=myUsername;Password=myPassword;
+
+x-api-key: ABC1234XYZ5678
+
+AWS Access Key ID: AKIAIOSFODNN7EXAMPLE
+AWS Secret Access Key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+
