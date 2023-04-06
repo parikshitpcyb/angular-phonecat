@@ -1,0 +1,18 @@
+name: License check
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Install dependencies
+      run: npm install
+    - name: Install license-checker
+      run: npm install -g license-checker
+    - name: Check licenses
+      run: license-checker --json --out licenses.json
+    - name: Print licenses
+      run: cat licenses.json
