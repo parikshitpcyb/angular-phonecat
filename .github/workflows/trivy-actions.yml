@@ -17,6 +17,7 @@ jobs:
               uses: aquasecurity/trivy-action@master 
               with: 
                 scan-type: 'fs' 
+                scanners: vuln,secret,license,config
                 ignore-unfixed: true 
                 format: 'sarif' 
                 output: 'trivy-results.sarif' 
