@@ -1,4 +1,4 @@
-name: build 
+name: trivy 
 on: 
     push: 
         branches: 
@@ -11,11 +11,11 @@ jobs:
         runs-on: ubuntu-20.04 
         steps: 
             - name: Checkout code 
-            uses: actions/checkout@v3 
+              uses: actions/checkout@v3 
             
             - name: Run Trivy vulnerability scanner in repo mode 
-            uses: aquasecurity/trivy-action@master 
-            with: 
+              uses: aquasecurity/trivy-action@master 
+              with: 
                 scan-type: 'fs' 
                 ignore-unfixed: true 
                 format: 'sarif' 
@@ -23,5 +23,6 @@ jobs:
                 severity: 'CRITICAL' 
                 
             - name: Upload Trivy scan results to GitHub Security tab 
-            uses: github/codeql-action/upload-sarif@v2 
-            with: sarif_file: 'trivy-results.sarif'
+              uses: github/codeql-action/upload-sarif@v2 
+              with:
+                sarif_file: 'trivy-results.sarif'
