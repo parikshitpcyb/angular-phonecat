@@ -1,6 +1,9 @@
-name: License check
+name: License Check
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -14,5 +17,9 @@ jobs:
       run: npm install -g license-checker
     - name: Check licenses
       run: license-checker --json --out licenses.json
-    - name: Print licenses
-      run: cat licenses.json
+    - name: Upload artifacts
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: licenses
+        path: licenses.json
