@@ -38,8 +38,8 @@ jobs:
             - name: Upload SBOM to Dependency-Track
               uses: DependencyTrack/gh-upload-sbom@v1.0.0
               with:
-                serverhostname: ${{ secrets.DEPENDENCY_TRACK_HOSTNAME }}
-                port: ${{ secrets.DEPENDENCY_TRACK_PORT }}
+                serverhostname: 'dependency.oopsie.wtf' #${{ secrets.DEPENDENCY_TRACK_HOSTNAME }}
+                port: '443' #${{ secrets.DEPENDENCY_TRACK_PORT }}
                 apikey: ${{ secrets.DEPENDENCY_TRACK_API_KEY }}
                 projectname: ${{ steps.repo.outputs.name }}
                 autocreate: true
