@@ -24,10 +24,10 @@ jobs:
             - name: Install Dependencies
               run: pip install requests
 
-            - name: Generate SBOM
-              uses: CycloneDX/gh-node-module-generatebom@v1              
-              with: 
-                output: bom.xml
+            #- name: Generate SBOM
+             # uses: CycloneDX/gh-node-module-generatebom@v1              
+              #with: 
+               # output: bom.xml
                 
            # - name: Upload SBOM artifact
             #  uses: actions/upload-artifact@v2
@@ -35,9 +35,9 @@ jobs:
               #  name: sbom
                # path: bom.xml
 
-            - name: Get Repository Name
-              id: repo
-              run: echo "::set-output name=name::$(echo ${GITHUB_REPOSITORY} | cut -d'/' -f2)"
+            #- name: Get Repository Name
+             # id: repo
+              #run: echo "::set-output name=name::$(echo ${GITHUB_REPOSITORY} | cut -d'/' -f2)"
 
             # - name: Get Latest Project Version
               # id: latest_version
