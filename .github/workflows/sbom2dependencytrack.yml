@@ -29,11 +29,11 @@ jobs:
               with: 
                 output: bom.xml
                 
-            - name: Upload SBOM artifact
-              uses: actions/upload-artifact@v2
-              with:
-                name: sbom
-                path: bom.xml
+           # - name: Upload SBOM artifact
+            #  uses: actions/upload-artifact@v2
+             # with:
+              #  name: sbom
+               # path: bom.xml
 
             - name: Get Repository Name
               id: repo
