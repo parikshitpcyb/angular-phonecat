@@ -61,7 +61,7 @@ jobs:
                 projectname: ${{ steps.repo.outputs.name }}
                 projectversion: 1.0 #${{ steps.latest_version.outputs.version }}
                 autocreate: true
-                bomfilename: sbom.xml
+                bomfilename: ${{ github.event.repository.name }}-${{ github.sha }}.xml
               env:
                 ARTIFACTS_DIR: ${{ github.workspace }}/artifacts
               if: always()
