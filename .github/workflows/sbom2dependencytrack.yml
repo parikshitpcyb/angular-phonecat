@@ -8,13 +8,14 @@ on:
 jobs: 
     build: 
         name: SBOM-Generation 
-        runs-on: ubuntu-20.04 
+        runs-on: ubuntu-latest 
         steps: 
             - name: Checkout code 
-              uses: actions/checkout@v3
+              uses: actions/checkout@v2
               
             - name: Install dependencies
               run: npm install
+              
             - name: Install Python
               uses: actions/setup-python@v2
               with:
@@ -51,7 +52,8 @@ jobs:
                 fi
 
             - name: Upload SBOM to Dependency-Track
-              uses: dependabot/dependabot-core/dependency-track-upload-sbom@v0.1.0
+              #uses: dependabot/dependabot-core/dependency-track-upload-sbom@v0.1.0
+              uses: DependencyTrack/gh-upload-sbom@v1.0.0
               with:
                 server: https://dependency.oopsie.wtf/
                 api_key: ${{ secrets.DEPENDENCY_TRACK_API_KEY }}
