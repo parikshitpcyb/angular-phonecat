@@ -1,29 +1,27 @@
-name: trivy 
+name: sbom generation 
 on: 
     push: 
         branches: 
-        - abcd 
+        - master 
     pull_request: 
 
 jobs: 
     build: 
-        name: Build 
+        name: SBOM-Generation 
         runs-on: ubuntu-20.04 
         steps: 
             - name: Checkout code 
               uses: actions/checkout@v3 
-            
-            - name: Run Trivy vulnerability scanner in repo mode 
-              uses: aquasecurity/trivy-action@master 
+            - name: Install dependencies
+              run: npm install
+            - name: Generate SBOM
+              uses: CycloneDX/cyclonedx-github-action@v2.2              
               with: 
-                scan-type: 'fs' 
-                scanners: vuln,secret,license,config
-                ignore-unfixed: true 
-                format: 'sarif' 
-                output: 'trivy-results.sarif' 
-                severity: 'CRITICAL' 
-                
-            - name: Upload Trivy scan results to GitHub Security tab 
-              uses: github/codeql-action/upload-sarif@v2 
+                include_dev_dependencies: true
+                output_type: 'all'
+                output_file_name: 'sbom.xml'
+            - name: Upload SBOM artifact
+              uses: actions/upload-artifact@v2
               with:
-                sarif_file: 'trivy-results.sarif'
+                name: sbom
+                path: sbom.xml
