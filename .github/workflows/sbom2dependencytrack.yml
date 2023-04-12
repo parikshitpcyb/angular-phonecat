@@ -55,8 +55,10 @@ jobs:
               #uses: dependabot/dependabot-core/dependency-track-upload-sbom@v0.1.0
               uses: DependencyTrack/gh-upload-sbom@v1.0.0
               with:
-                server: https://dependency.oopsie.wtf/
-                api_key: ${{ secrets.DEPENDENCY_TRACK_API_KEY }}
-                file: sbom.xml
-                project_name: ${{ steps.repo.outputs.name }}
-                project_version: 1.0 #${{ steps.latest_version.outputs.version }}
+                serverhostname: dependency.oopsie.wtf
+                port: 443
+                apikey: ${{ secrets.DEPENDENCY_TRACK_API_KEY }}
+                projectname: ${{ steps.repo.outputs.name }}
+                projectversion: 1.0 #${{ steps.latest_version.outputs.version }}
+                autocreate: true
+                bomfilename: sbom.xml
