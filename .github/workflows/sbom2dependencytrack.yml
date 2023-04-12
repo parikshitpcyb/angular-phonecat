@@ -47,5 +47,6 @@ jobs:
                 port: '443' #${{ secrets.DEPENDENCY_TRACK_PORT }}
                 apikey: ${{ secrets.DEPENDENCY_TRACK_API_KEY }}
                 projectname: ${{ steps.repo.outputs.name }}
+                projectversion: '1.0' 
                 autocreate: true
                 bomfilename: 'sbom.xml'
