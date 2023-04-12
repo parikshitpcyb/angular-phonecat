@@ -1,13 +1,11 @@
 name: SBOM-Generation
 
-on:
-  push:
-    branches:
-      - master
+on: push
 
 jobs:
-  generate-sbom:
+  build:
     runs-on: ubuntu-latest
+    name: generate-sbom
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
