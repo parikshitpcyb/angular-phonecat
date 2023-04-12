@@ -42,7 +42,7 @@ jobs:
             - name: Get Latest Project Version
               id: latest_version
               run: |
-                response=$(curl -H "X-Api-Key: ${{ secrets.DEPENDENCY_TRACK_API_KEY }}" https://dependency.oopsie.wtf/api/v1/project/${{ steps.repo.outputs.name }}/versions?limit=1)
+                response=$(curl -H "X-Api-Key: ${{ secrets.DEPENDENCY_TRACK_API_KEY }}" https://dependency.oopsie.wtf/api/v1/project?excludeInactive=&name=${{ steps.repo.outputs.name }})
                 if [ "$(echo $response | jq '.count')" -eq 0 ]; then
                     echo "::set-output name=version::1.0.0"
                 else
