@@ -17,11 +17,12 @@ jobs:
             - name: Generate SBOM
               uses: CycloneDX/gh-node-module-generatebom@v1              
               with: 
-                include_dev_dependencies: true
-                output_type: 'all'
-                output_file_name: 'sbom.xml'
+                output: './test.app.bom.xml'
+                #include_dev_dependencies: true
+                #output_type: 'all'
+                #output_file_name: 'sbom.xml'
             - name: Upload SBOM artifact
               uses: actions/upload-artifact@v2
               with:
                 name: sbom
-                path: sbom.xml
+                path: bom.xml
