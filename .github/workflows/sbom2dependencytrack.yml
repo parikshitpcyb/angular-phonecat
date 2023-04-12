@@ -10,58 +10,37 @@ jobs:
         name: SBOM-Generation 
         runs-on: ubuntu-latest 
         steps: 
+            #Checkout the product source code
             - name: Checkout code 
-              uses: actions/checkout@v2
-              
-            - name: Install dependencies
+              uses: actions/checkout@v3
+      
+            #Install npm package
+            - name: Install npm
               run: npm install
               
+            #Install Pyton version 3.x
             - name: Install Python
-              uses: actions/setup-python@v2
+              uses: actions/setup-python@v4
               with:
                 python-version: 3.x
-
-            - name: Install Dependencies
+            
+            #Install Pip
+            - name: Install PIP
               run: pip install requests
 
-            #- name: Generate SBOM
-             # uses: CycloneDX/gh-node-module-generatebom@v1              
-              #with: 
-               # output: bom.xml
-                
-           # - name: Upload SBOM artifact
-            #  uses: actions/upload-artifact@v2
-             # with:
-              #  name: sbom
-               # path: bom.xml
-
-            #- name: Get Repository Name
-             # id: repo
-              #run: echo "::set-output name=name::$(echo ${GITHUB_REPOSITORY} | cut -d'/' -f2)"
-
-            # - name: Get Latest Project Version
-              # id: latest_version
-              # run: |
-                # response=$(curl -H "X-Api-Key: ${{ secrets.DEPENDENCY_TRACK_API_KEY }}" https://dependency.oopsie.wtf/api/v1/project?excludeInactive=&name=${{ steps.repo.outputs.name }})
-                # if [ "$(echo $response | jq '.count')" -eq 0 ]; then
-                    # echo "::set-output name=version::1.0.0"
-                # else
-                    # latest=$(echo $response | jq '.versions[0].version' | tr -d '"')
-                    # version=$(python -c "import semver; print(semver.bump_patch('$latest'))")
-                    # echo "::set-output name=version::$version"
-                # fi
-
+            #Generate BOM.XML and output to a file
+            - name: Generate SBOM
+              uses: CycloneDX/gh-node-module-generatebom@v1              
+              with: 
+                output: sbom.xml
+     
+            #Upload SBOM to Dependency-Track
             - name: Upload SBOM to Dependency-Track
-              #uses: dependabot/dependabot-core/dependency-track-upload-sbom@v0.1.0
               uses: DependencyTrack/gh-upload-sbom@v1.0.0
               with:
-                serverhostname: 'dependency.oopsie.wtf'
-                port: '443'
+                serverhostname: ${{ secrets.DEPENDENCY_TRACK_URL }}
+                port: ${{ secrets.DEPENDENCY_TRACK_PORT }}
                 apikey: ${{ secrets.DEPENDENCY_TRACK_API_KEY }}
                 projectname: ${{ steps.repo.outputs.name }}
-                projectversion: '1.0' #${{ steps.latest_version.outputs.version }}
                 autocreate: true
-                bomfilename: 'bom.xml'
-              #env:
-               # ARTIFACTS_DIR: ${{ github.workspace }}/artifacts
-              #if: always()
+                bomfilename: 'sbom.xml'
