@@ -2,7 +2,7 @@ name: sbom generation
 on: 
     push: 
         branches: 
-        - master 
+        - abde 
     pull_request: 
 
 jobs: 
