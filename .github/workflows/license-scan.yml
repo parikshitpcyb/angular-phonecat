@@ -1,13 +1,25 @@
 name: License Scanning
-on: [pull_request, push]
+on: [pull_request]
 
 jobs:
   ort:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - repository: parikshitpcyb/angular-phonecat
+            sw-name: angular-phonecat
+          - repository: parikshitpcyb/CircleCI-dvwa
+            sw-name: CircleCI-dvwa
     runs-on: ubuntu-latest
     steps:
       - name: Use HTTPS instead of SSH for Git cloning
         run: git config --global url.https://github.com/.insteadOf ssh://git@github.com/
       - name: Checkout project
         uses: actions/checkout@v3
+        with:
+          repository: ${{ matrix.repository }}
       - name: Run GitHub Action for ORT
         uses: oss-review-toolkit/ort-ci-github-action@v1
+        with:
+          sw-name: ${{ matrix.sw-name }}
